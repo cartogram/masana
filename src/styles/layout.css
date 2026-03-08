@@ -1,0 +1,30 @@
+:root {
+  --color-primary: #000;
+}
+
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "main aside";
+}
+
+.Main {
+  grid-area: main;
+  background: #f0f0f0;
+}
+
+.Aside {
+  grid-area: aside;
+  background: #fff;
+  border-left: 1px solid #e0e0e0;
+}
+
+.Nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
