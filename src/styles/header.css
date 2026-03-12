@@ -32,14 +32,28 @@
   font-family: var(--font-monospaced);
   font-size: 0.8rem;
   cursor: pointer;
+  display: flex;
 
   &:before {
     content: '[ ] ';
   }
-}
+
+  &:after {
+    content: 'Menu';
+    min-width: 6ch;
+  }
+
+
+&:before {
+    content: '[ ] ';
+  }}
 
 [popover]:popover-open + .NavToggle:before {
   content: '[•] ';
+}
+
+[popover]:popover-open + .NavToggle:after {
+  content: 'Close';
 }
 
 .Nav {
@@ -53,7 +67,7 @@
   flex-direction: column;
   color: var(--foreground);
   border: none;
-  max-width: 40rem;
+  max-width: 35rem;
   inline-size: 100%;
   margin: 0;
   inset-inline-start: unset;
