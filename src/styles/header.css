@@ -24,7 +24,7 @@
 .Wordmark {
   line-height: var(--wordmark-height);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -92,6 +92,8 @@
   }
 }
 
+
+.link-secondary,
 .link--primary {
   position: relative;
   padding: 0.25em 0;
@@ -137,4 +139,9 @@
       }
     }
   }
+}
+
+
+.link-secondary {
+  display: inline-flex;
 }

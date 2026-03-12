@@ -1,5 +1,6 @@
 :root {
   --background: hsl(218.36deg 4.09% 11.06%);
-  --foreground: hsl(180deg 25.91% 77.22%);
-  --nav-background: hsl(262.5deg 100% 8.09%);
+  --foreground: hsl(197.43deg 82.96% 25.03%);
+  --nav-background: hsla(51, 33%, 94%, 1);
+
 }

@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import Hands from '../assets/images/hand.jpg';
+
+const year = new Date().getFullYear();
 ---
 
 <Layout>
@@ -21,62 +23,48 @@ import Hands from '../assets/images/hand.jpg';
             >
           </li>
           <li>
-            <a class="heading-2 link--primary" href="#">Therapy</a>
+            <a class="heading-2 link--primary" href="#"> Pychotherapy </a>
+          </li>
+          <li>
+            <a class="heading-2 link--primary" href="#">Training</a>
           </li>
         </ul>
 
         <ul>
+					<li>
+					<a class="heading-4 link-secondary" href="#">Philosophy</a>
+				</li>
           <li>
-            <a class="heading-4" href="#">About</a>
+            <a class="heading-4 link-secondary" href="#">About</a>
           </li>
+					<li>
+						<a class="heading-4 link-secondary" href="#">Testimonials</a>
+					</li>
+        
           <li>
-            <a class="heading-4" href="#">Philosophy</a>
-          </li>
-          <li>
-            <a class="heading-4" href="#">Contact</a>
+            <a class="heading-4 link-secondary" href="#">Contact</a>
           </li>
         </ul>
         <ul>
+					<li class="heading-6">
+						Copyright © {year} Masana.
+					 </li>
           <li class="heading-6">
             Website by <a href="https//cartogram.ca">Cartogram</a>
           </li>
+
+        
         </ul>
       </nav>
-			<button class="NavToggle" popovertarget="nav"></button>
+      <button class="NavToggle" popovertarget="nav"></button>
     </div>
-    <div class="content"><h2>Physical intelligence</h2></div>
+    <div class="content">
+			<h1 class="heading-5">Physical Intelligence</h1>
+			<p>
+				Our hands have become eyes for the heart, delving into physical, psychological and emotional connections, forming unparalleled knowledge to our treatment.
+
+
+			</p>
+		</div>
   </div>
 </Layout>
-
-<script>
-	window.onload = function () {
-		if (typeof window !== 'undefined') {
-			const button = document.querySelector('button[popovertarget=nav]');
-			const popover = document.querySelector('#nav');
-
-			button.addEventListener('click', toggle);
-
-			function toggle(e) {
-				e.preventDefault();
-
-				const is_opening = !popover.matches(':popover-open');
-
-				if (is_opening) {
-					popover.showPopover();
-				} else {
-					popover.hidePopover();
-				}
-			}
-
-			document.addEventListener('keydown', (e) => {
-				if (
-					e.key === 'Escape' &&
-					popover.hasAttribute('popover') &&
-					popover.matches(':popover-open')
-				) {
-					toggle(e);
-				}
-			});
-		}
-	};
-</script>
