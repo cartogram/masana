@@ -1,9 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import Hands from '../assets/images/hand.jpg';
-
-const year = new Date().getFullYear();
+import Nav from '../components/nav.astro';
+import Form from '../components/form.astro';
 ---
 
 <Layout>
@@ -14,47 +12,7 @@ const year = new Date().getFullYear();
   <div slot="aside" class="Aside">
     <div class="Header">
       <a class="Wordmark heading-4 link-secondary" href="/">Masana</a>
-      <nav popover id="nav" class="Nav">
-        <ul>
-          <li class="heading-3 list-label">Services</li>
-          <li class="divider">
-            <a class="heading-2 link--primary link--primary--current" href="#"
-              >Osteopathy</a
-            >
-          </li>
-          <li class="divider">
-            <a class="heading-2 link--primary" href="#"> Pychotherapy </a>
-          </li>
-          <li class="divider">
-            <a class="heading-2 link--primary" href="#">Training</a>
-          </li>
-        </ul>
-
-        <ul>
-          <li>
-            <a class="heading-4 link-secondary" href="#">Philosophy</a>
-          </li>
-          <li>
-            <a class="heading-4 link-secondary" href="#">About</a>
-          </li>
-          <li>
-            <a class="heading-4 link-secondary" href="#">Testimonials</a>
-          </li>
-
-          <li>
-            <a class="heading-4 link-secondary" href="#">Contact</a>
-          </li>
-        </ul>
-        <ul>
-          <li class="heading-6">
-            Copyright © {year} Masana.
-          </li>
-          <li class="heading-6">
-            Website by <a href="https//cartogram.ca">Cartogram</a>
-          </li>
-        </ul>
-      </nav>
-      <button class="NavToggle" popovertarget="nav"></button>
+			<Nav />
     </div>
     <div class="content">
 			<article>
@@ -65,17 +23,7 @@ const year = new Date().getFullYear();
         to our treatment.
       </p></article>
 
-
-			<form class="newsletter-form">
-				<h2 class="heading-5">Stay up to date</h1>
-					<p>For the latest news, projects, interviews, research, and occasional behind-the-scenes updates from us, join our newsletter.
-
-					</p>
-					<fieldset class="fieldset">
-						<input type="email" placeholder="Your email" class="input" />
-						<button type="submit" class="button">Subscribe</button>
-					</fieldset>
-				</form>
+<Form />
 			</div>	
 		</div>
 	</Layout>
