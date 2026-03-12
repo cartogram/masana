@@ -5,27 +5,78 @@ import Hands from '../assets/images/hand.jpg';
 ---
 
 <Layout>
-  <div slot="main">
-		<Image src={Hands} alt="Mansana" />
-
-    <h1 class="font-weight-200">Mansana</h1>
+  <div slot="main" class="Main">
+    <!-- <Image src={Hands} alt="Masana" class="Image" /> -->
   </div>
-  <div slot="aside">
-    <nav class="Nav">
-			<ul>
-				<li>
-					<a href="/philosophy">Philosophy</a>
-				</li>
-				<li>
-					<a href="/research">Research</a>
-				</li>
-				<li>
-					<a href="/teaching">Teaching</a>
-				</li>
-				<li>
-					<a href="/contact">Contact</a>
-				</li>
-			</ul>
-		</nav>
+
+  <div slot="aside" class="Aside">
+    <div class="Header">
+      <h1 class="Wordmark">Masana</h1>
+      <nav popover id="nav" class="Nav">
+        <ul>
+          <li class="heading-3">Services</li>
+          <li>
+            <a class="heading-2 link--primary link--primary--current" href="#"
+              >Osteopathy</a
+            >
+          </li>
+          <li>
+            <a class="heading-2 link--primary" href="#">Therapy</a>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <a class="heading-4" href="#">About</a>
+          </li>
+          <li>
+            <a class="heading-4" href="#">Philosophy</a>
+          </li>
+          <li>
+            <a class="heading-4" href="#">Contact</a>
+          </li>
+        </ul>
+        <ul>
+          <li class="heading-6">
+            Website by <a href="https//cartogram.ca">Cartogram</a>
+          </li>
+        </ul>
+      </nav>
+			<button class="NavToggle" popovertarget="nav">Menu</button>
+    </div>
+    <div class="content"><h2>Physical intelligence</h2></div>
   </div>
 </Layout>
+
+<script>
+	window.onload = function () {
+		if (typeof window !== 'undefined') {
+			const button = document.querySelector('button[popovertarget=nav]');
+			const popover = document.querySelector('#nav');
+
+			button.addEventListener('click', toggle);
+
+			function toggle(e) {
+				e.preventDefault();
+
+				const is_opening = !popover.matches(':popover-open');
+
+				if (is_opening) {
+					popover.showPopover();
+				} else {
+					popover.hidePopover();
+				}
+			}
+
+			document.addEventListener('keydown', (e) => {
+				if (
+					e.key === 'Escape' &&
+					popover.hasAttribute('popover') &&
+					popover.matches(':popover-open')
+				) {
+					toggle(e);
+				}
+			});
+		}
+	};
+</script>

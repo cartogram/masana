@@ -1,0 +1,11 @@
+.Aside {
+  grid-area: aside;
+  background: var(--nav-background);
+  min-width: 35rem;
+}
+
+.content {
+  padding: 2rem;
+}
+
+

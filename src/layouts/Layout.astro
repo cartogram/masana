@@ -1,8 +1,11 @@
 ---
+import '../styles/variables.css'
 import '../styles/base.css';
 import '../styles/layout.css';
 import '../styles/typography.css';
-import '../styles/nav.css';
+import '../styles/main.css';
+import '../styles/aside.css';
+import '../styles/header.css';
 ---
 
 <!doctype html>
@@ -13,16 +16,12 @@ import '../styles/nav.css';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Mansana</title>
+    <title>Masana</title>
   </head>
   <body>
     <div class="container">
-      <div class="Main">
-        <slot name="main" />
-      </div>
-      <div class="Aside">
-        <slot name="aside" />
-      </div>
+      <slot name="main" />
+      <slot name="aside" />
     </div>
   </body>
 </html>

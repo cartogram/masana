@@ -11,24 +11,57 @@
     U+2215, U+FEFF, U+FFFD;
 }
 
+:root {
+  --font-sans: 'Manrope Variable', sans-serif;
+  --font-monospaced: menlo;
+}
+
 body {
-  font-family: 'Manrope Variable', sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
+.heading-1,
 h2,
+.heading-2,
 h3,
+.heading-3
 h4,
+.heading-4,
 h5,
-h6 {
-  font-family: 'Manrope Variable', sans-serif;
+.heading-5
+h6,
+.heading-6 {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
+.heading-2 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.heading-3 {
+  font-family: var(--font-monospaced);
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.heading-6 {
+  font-family: var(--font-monospaced);
+  font-size: 10px;
+  margin-bottom: 0.5rem;
+  font-weight: 200;
+}
+
 p {
-  font-family: 'Manrope Variable', sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -41,4 +74,12 @@ p {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
 }
