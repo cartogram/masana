@@ -100,3 +100,30 @@ ul {
   flex-direction: column;
 }
 
+li {
+  position: relative;
+
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+  }
+
+  &.list-label {
+    &::before {
+      background: transparent;
+    }
+  }
+
+  &.divider {
+    &::before {
+      background: var(--highlight);
+    }
+}
+}
+

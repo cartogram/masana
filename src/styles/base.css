@@ -17,9 +17,11 @@ body {
 a {
   text-decoration: none;
   color: var(--foreground);
+  transition: color 300ms;
 
   &:hover {
     text-decoration: underline;
+    color: var(--highlight);
   }
 }
 

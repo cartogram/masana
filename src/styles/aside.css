@@ -1,7 +1,12 @@
 .Aside {
   grid-area: aside;
   background: var(--nav-background);
-  min-width: 35rem;
+  min-width: var(--nav-width);
+  width: 100%;
+
+  @media (min-width: 680px) {
+    min-width: var(--nav-width);
+  }
 }
 
 .content {

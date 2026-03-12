@@ -2,5 +2,6 @@
   --background: hsl(218.36deg 4.09% 11.06%);
   --foreground: hsl(197.43deg 82.96% 25.03%);
   --nav-background: hsla(51, 33%, 94%, 1);
-
+  --nav-width: 40rem;
+  --highlight: hsl(169.93deg 26.9% 50.23%);
 }

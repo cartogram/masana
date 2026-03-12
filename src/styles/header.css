@@ -67,11 +67,16 @@
   flex-direction: column;
   color: var(--foreground);
   border: none;
-  max-width: 35rem;
+  width: 100%;
   inline-size: 100%;
   margin: 0;
   inset-inline-start: unset;
   inset-inline-end: 0;
+
+  @media (min-width: 680px) {
+    max-width: var(--nav-width);
+    min-width: var(--nav-width);
+  }
 
   &:popover-open {
     opacity: 1;
@@ -125,14 +130,17 @@
   }
 
   &.link--primary--current {
+    text-indent: -0.25rem;
     &::before {
       content: '•';
       font-size: 1.5rem;
+
     }
 
     &:hover,
     &:focus-within {
       cursor: default;
+      color: var(--foreground);
 
       &::after {
         transform: scaleX(1);
