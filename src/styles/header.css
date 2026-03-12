@@ -53,9 +53,8 @@
   flex-direction: column;
   color: var(--foreground);
   border: none;
-  max-width: 35rem;
-  inline-size: 100vi;
-
+  max-width: 40rem;
+  inline-size: 100%;
   margin: 0;
   inset-inline-start: unset;
   inset-inline-end: 0;
