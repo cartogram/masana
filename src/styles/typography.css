@@ -57,6 +57,7 @@ h2,
 .heading-2 {
   font-size: 2rem;
   line-height: 1.2;
+  font-weight: 400;
 }
 
 h3,
@@ -68,6 +69,10 @@ h3,
 
 h4,
 .heading-4 {
+  font-weight: 600;
+  line-height: 1.35;
+  font-size: 1rem;
+  text-wrap: pretty;
 }
 
 h5,
@@ -75,6 +80,7 @@ h5,
   font-family: var(--font-monospaced);
   font-size: 0.8rem;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 h6,
@@ -88,8 +94,15 @@ h6,
 p {
   font-weight: 400;
   line-height: 1.35;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-wrap: pretty;
+}
+
+.lead {
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 1.5rem;
+  text-wrap: pretty; 
 }
 
 ul {

@@ -11,6 +11,48 @@
 
 .content {
   padding: 2rem 3rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
 }
 
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  display: flex;
+  border: none;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--highlight);
+
+  &::placeholder {
+    color: var(--highlight);
+  }
+
+  &:focus {
+    outline: none;
+    color: var(--foreground);
+  }
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  
+}

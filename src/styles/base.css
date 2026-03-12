@@ -29,4 +29,11 @@ button {
   color: var(--foreground);
   border: 0;
   background: none;
+  cursor: pointer;
+  transition: all 300ms;
+  font-family: var(--font-monospaced);
+
+  &:hover {
+    color: var(--highlight);
+  }
 }

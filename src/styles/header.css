@@ -9,7 +9,7 @@
   inset-inline: 0;
   top: 0;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   padding: 0 var(--header-gutter);
   overflow: hidden;
@@ -21,18 +21,12 @@
   }
 }
 
-.Wordmark {
-  line-height: var(--wordmark-height);
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0;
-}
-
 .NavToggle {
   font-family: var(--font-monospaced);
   font-size: 0.8rem;
   cursor: pointer;
   display: flex;
+  padding: 1rem 0;
 
   &:before {
     content: '[ ] ';

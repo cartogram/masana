@@ -13,7 +13,7 @@ const year = new Date().getFullYear();
 
   <div slot="aside" class="Aside">
     <div class="Header">
-      <h1 class="Wordmark">Masana</h1>
+      <a class="Wordmark heading-4 link-secondary" href="/">Masana</a>
       <nav popover id="nav" class="Nav">
         <ul>
           <li class="heading-3 list-label">Services</li>
@@ -57,12 +57,26 @@ const year = new Date().getFullYear();
       <button class="NavToggle" popovertarget="nav"></button>
     </div>
     <div class="content">
+			<article>
       <h1 class="heading-5">Physical Intelligence</h1>
-      <p>
+      <p class="lead">
         Our hands have become eyes for the heart, delving into physical,
         psychological and emotional connections, forming unparalleled knowledge
         to our treatment.
-      </p>
-    </div>
-  </div>
+      </p></article>
+
+
+			<form class="newsletter-form">
+				<h2 class="heading-5">Stay up to date</h1>
+					<p>For the latest news, projects, interviews, research, and occasional behind-the-scenes updates from us, join our newsletter.
+
+					</p>
+					<fieldset class="fieldset">
+						<input type="email" placeholder="Your email" class="input" />
+						<button type="submit" class="button">Subscribe</button>
+					</fieldset>
+				</form>
+			</div>	
+		</div>
+	</Layout>
 </Layout>
