@@ -1,4 +1,5 @@
 ---
+
 import '../styles/variables.css'
 import '../styles/base.css';
 import '../styles/layout.css';
@@ -8,6 +9,23 @@ import '../styles/aside.css';
 import '../styles/header.css';
 import '../styles/nav.css';
 import '../styles/form.css';
+import Three from "../components/three.astro";
+import mainUrl from "../script/main.ts?url";
+
+const { shape = 'circle', pixelSize } = Astro.props;
+
+const palettes = {
+  square  : { ink: '#ff6d00', bg: '#0d0d0d' }, 
+  
+  circle  : { ink: '#55ffa7', bg: '#001d1d' }, 
+  triangle: { ink: '#4089ff', bg: '#0a2639' }, 
+  diamond : { ink: '#f6cf3e', bg: '#080603' }, 
+};
+type Shape = keyof typeof palettes;
+const shapes = Object.keys(palettes) as Shape[];
+const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+
+const { bg, ink } = palettes[randomShape as Shape];
 ---
 
 <!doctype html>
@@ -22,7 +40,8 @@ import '../styles/form.css';
   </head>
   <body>
     <div class="container">
-      <slot name="main" />
+      <Three  {...{bg, ink, shape: randomShape, pixelSize}}  />
+
       <slot name="aside" />
     </div>
   </body>
