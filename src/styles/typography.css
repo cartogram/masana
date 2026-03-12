@@ -96,6 +96,7 @@ p {
   line-height: 1.35;
   font-size: 1rem;
   text-wrap: pretty;
+  margin-bottom: 1.5rem;
 }
 
 .lead {
@@ -103,6 +104,7 @@ p {
   line-height: 1.2;
   font-size: 1.5rem;
   text-wrap: pretty; 
+  margin-bottom: 2.5rem;
 }
 
 ul {

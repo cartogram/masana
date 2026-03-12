@@ -3,6 +3,10 @@ form {
   flex-direction: column;
 }
 
+form p {
+  margin-bottom: 0rem;
+}
+
 fieldset {
   display: flex;
   border: none;
