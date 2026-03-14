@@ -78,7 +78,7 @@ h4,
 h5,
 .heading-5 {
   font-family: var(--font-monospaced);
-  font-size: 0.8rem;
+  font-size: 12px;
   margin-bottom: 1rem;
   font-weight: 500;
 }

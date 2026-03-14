@@ -21,7 +21,7 @@
   }}
 
 [popover]:popover-open + .NavToggle:before {
-  content: '[•] ';
+  content: '[×] ';
 }
 
 [popover]:popover-open + .NavToggle:after {

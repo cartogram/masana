@@ -1,6 +1,6 @@
 .Header {
   --wordmark-height: 4rem;
-  --header-gutter: 2rem;
+  --header-gutter: 4rem;
 
   height: var(--wordmark-height);
   position: fixed;
