@@ -1,13 +1,14 @@
 precision highp float;
 
-uniform vec3  uColor; // Viewport resolution (pixels)
 uniform vec2  uResolution;
-uniform vec4  uMouse;
 uniform float uTime;
 uniform float uPixelSize;
 
+uniform vec3  uColorSquare;
+uniform vec3  uColorCircle;
+uniform vec3  uColorTriangle;
+uniform vec3  uColorDiamond;
 
-uniform int   uShapeType;         // 0=square 1=circle 2=tri 3=diamond
 const int SHAPE_SQUARE   = 0;
 const int SHAPE_CIRCLE   = 1;
 const int SHAPE_TRIANGLE = 2;
@@ -43,6 +44,7 @@ float Bayer2(vec2 a) {
   1-D hash and 3-D value-noise helpers
 -------------------------------------------------------------*/
 float hash11(float n) { return fract(sin(n)*43758.5453); }
+float hash21(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7)))*43758.5453); }
 
 float vnoise(vec3 p)
 {
@@ -164,15 +166,23 @@ void main() {
     float bayer = Bayer8(fragCoord / uPixelSize) - 0.5;
     float bw    = step(0.5, feed + bayer);     // ordered-dither output
 
-    /* ===== mask selection ================================= */
+    /* ===== shape per pixel (deterministic from position) === */
+    float h = hash21(pixelId);
+    int shapeType = int(mod(floor(h * 4.0), 4.0));
+
     float coverage = bw;
     float M;
-    if      (uShapeType == SHAPE_CIRCLE)   M = maskCircle (pixelUV, coverage);
-    else if (uShapeType == SHAPE_TRIANGLE) M = maskTriangle(pixelUV, pixelId, coverage);
-    else if (uShapeType == SHAPE_DIAMOND)  M = maskDiamond(pixelUV, coverage);
-    else                                   M = coverage;   // default = square
+    if      (shapeType == SHAPE_CIRCLE)   M = maskCircle (pixelUV, coverage);
+    else if (shapeType == SHAPE_TRIANGLE) M = maskTriangle(pixelUV, pixelId, coverage);
+    else if (shapeType == SHAPE_DIAMOND)  M = maskDiamond(pixelUV, coverage);
+    else                                  M = coverage;   // square
+
+    vec3 color;
+    if      (shapeType == SHAPE_SQUARE)   color = uColorSquare;
+    else if (shapeType == SHAPE_CIRCLE)   color = uColorCircle;
+    else if (shapeType == SHAPE_TRIANGLE) color = uColorTriangle;
+    else                                  color = uColorDiamond;
     /* ====================================================== */
 
-    vec3 color = uColor; 
     fragColor = vec4(color, M);
 }

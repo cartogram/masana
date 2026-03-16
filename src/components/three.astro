@@ -1,11 +1,24 @@
 ---
-const { shape, pixelSize, bg, ink } = Astro.props;
+import { defaultTheme, type Theme } from '../script/theme';
+
+interface Props {
+  theme?: Partial<Theme>;
+}
+
+const { theme } = Astro.props as Props;
+const resolvedTheme: Theme = {
+  bg: theme?.bg ?? defaultTheme.bg,
+  gradient: theme?.gradient ?? defaultTheme.gradient,
+  shape: { ...defaultTheme.shape, ...theme?.shape },
+};
+const themeJson = JSON.stringify(resolvedTheme);
+const g = resolvedTheme.gradient!;
+const gradientStyle = g.via
+  ? `linear-gradient(135deg, ${g.from} 0%, ${g.via} 50%, ${g.to} 100%)`
+  : `linear-gradient(135deg, ${g.from} 0%, ${g.to} 100%)`;
 ---
-<div id="hero_bg" 
-  data-shape={shape} 
-  data-pixel-size={pixelSize}
-  data-ink={ink}
-  style={`background-color: ${bg};`}
-  />
+<div id="hero_bg" class="hero-bg" data-theme={themeJson} style={`background-color: ${resolvedTheme.bg};`}>
+  <div class="hero-bg__gradient" style={`background: ${gradientStyle};`} aria-hidden="true" />
+</div>
 
 <script src="../script/main.ts"></script>

@@ -1,7 +1,7 @@
 *,
 html,
 body,
-#hero_bg,
+.hero-bg,
 canvas,
 *::before,
 *::after {
@@ -11,12 +11,39 @@ canvas,
   margin: 0;
 }
 
-#hero_bg,
-canvas {
+.hero-bg {
+  position: relative;
+}
+
+.hero-bg,
+.hero-bg canvas {
   padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+.hero-bg__gradient {
+  position: absolute;
+  inset: 0;
+  background-size: 400% 400%;
+  animation: hero-bg-gradient 15s ease infinite;
+  pointer-events: none;
+}
+
+.hero-bg canvas {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes hero-bg-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 html,
@@ -53,6 +80,6 @@ button {
 }
 
 
-#hero_bg canvas {
+.hero-bg canvas {
   display: block;
 }

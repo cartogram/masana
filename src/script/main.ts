@@ -1,18 +1,14 @@
 import * as THREE from 'three';
 import vertexSrc   from './shaders/vertex.glsl?raw';
 import fragmentSrc from './shaders/fragment.glsl?raw';
+import { defaultTheme, type Theme } from './theme';
 
-
-const bg = document.getElementById('hero_bg')
-const shapeAttr  = bg?.getAttribute('data-shape') ?? 'square';
-const pixelSizeAttr = bg?.getAttribute('data-pixel-size') ?? '4';
-const inkAttr = bg?.getAttribute('data-ink') ?? '#FFFFFF';
-
-const SHAPE_MAP: Record<string, number> = {
-  square: 0,
-  circle: 1,
-  triangle: 2,
-  diamond: 3,
+const bg = document.getElementById('hero_bg');
+const themeAttr = bg?.getAttribute('data-theme');
+const parsed = themeAttr ? JSON.parse(themeAttr) : {};
+const theme: Theme = {
+  bg: parsed.bg ?? defaultTheme.bg,
+  shape: { ...defaultTheme.shape, ...parsed.shape },
 };
 
 /* ---------- renderer ------------------------------------- */
@@ -24,13 +20,15 @@ bg?.appendChild(canvas);
 /* ---------- uniforms ------------------------------------- */
 const MAX_CLICKS = 10;
 const uniforms = {
-  uResolution : { value: new THREE.Vector2() },
-  uTime       : { value: 0 },
-  uColor     : { value: new THREE.Color(inkAttr) },
-  uClickPos   : { value: Array.from({ length: MAX_CLICKS }, () => new THREE.Vector2(-1, -1)) },
-  uClickTimes : { value: new Float32Array(MAX_CLICKS) },
-  uShapeType  : { value: SHAPE_MAP[shapeAttr] ?? 0 },
-  uPixelSize  : { value: parseFloat(pixelSizeAttr) || 4 },
+  uResolution    : { value: new THREE.Vector2() },
+  uTime          : { value: 0 },
+  uPixelSize     : { value: 4 },
+  uColorSquare   : { value: new THREE.Color(theme.shape.square) },
+  uColorCircle   : { value: new THREE.Color(theme.shape.circle) },
+  uColorTriangle : { value: new THREE.Color(theme.shape.triangle) },
+  uColorDiamond  : { value: new THREE.Color(theme.shape.diamond) },
+  uClickPos      : { value: Array.from({ length: MAX_CLICKS }, () => new THREE.Vector2(-1, -1)) },
+  uClickTimes    : { value: new Float32Array(MAX_CLICKS) },
 };
 
 /* ---------- scene / camera / quad ------------------------ */
